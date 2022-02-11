@@ -8,11 +8,12 @@
     </div>
     <div>
         <label>Gender </label>
-        <div class="textBox">
+        <!-- <div class="textBox">
         <Button label="Male" class="p-button-outlined gButton" />
         <Button label="Female" class="p-button-outlined gButton" />
         <Button label="Other" class="p-button-outlined gButton" />
-        </div>
+        </div> -->
+        <SelectButton v-model="value1" :options="options" class="textBox"/>
     </div>
   <div>
       <label>Country </label>
@@ -24,19 +25,26 @@
   </div> 
   <div>
       <label>Phone Number </label>
-      <InputText id="mobile" placeholder="Phone Number" class="textBox" />
+      <!-- <InputText id="mobile" placeholder="Phone Number" class="textBox" /> -->
+      <InputNumber id="mobile" v-model="mobile" :useGrouping="false" class="textBox"  />
   </div>   
   <div >
       <Button label="Next" class="textBox"/>
+  </div>
+  <div> 
+    <h6>Already have an account?</h6>
+    
   </div>
     
   </div>
 </template>
 <script>
 export default {
-  name: "Form1", 
+  name: "Form1",
   data(){
       return{
+        value1: 'Off',
+        options: ['Male', 'Female','Other'],
           selectedCountries: null,
           selectedStates: null,
           fname:'',
@@ -44,14 +52,16 @@ export default {
           states: ['New South Wales', 'Queensland', 'Tibet','Qinghai','Karnataka','Tamil Nadu','Balochistan'
           ,'Gilgit-Baltistan','Altay','Amur','Texas','California']
       }
+      
   } 
    
 };
 </script>
-<style scoped>
-h1 {
+<style >
+h1,h6 {
   text-align: center;
 }
+
 .gButton{
     margin-right:30px;
 
@@ -59,16 +69,18 @@ h1 {
 
 .details {
   text-align: left;
-  margin:10%
+  margin:10%;
+  margin-top: 5%;
 
 }
 .name{
     width:100%;
 }
+
 .textBox{
     width: 100% !important;
-    margin-top: 10px;
-    margin-bottom: 20px;
+    margin-top: 10px !important;
+    margin-bottom: 20px !important;
     
 }
 </style>

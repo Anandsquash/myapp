@@ -6,6 +6,8 @@ import InputText from 'primevue/inputtext';
 import Button from 'primevue/button';
 import Dropdown from 'primevue/dropdown';
 import InputNumber from 'primevue/inputnumber';
+import SelectButton from 'primevue/selectbutton';
+import Checkbox from 'primevue/checkbox';
 
 import 'primevue/resources/themes/saga-orange/theme.css'       //theme
 import 'primevue/resources/primevue.min.css'                 //core css
@@ -19,4 +21,6 @@ app.component('InputText',InputText)
 app.component('Button',Button)
 app.component('Dropdown',Dropdown)
 app.component('InputNumber',InputNumber)
+app.component('SelectButton',SelectButton)
+app.component('Checkbox',Checkbox)
 

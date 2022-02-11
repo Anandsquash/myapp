@@ -4,6 +4,7 @@
         <HelloWorld msg= "Personal Details" name="Anand" company="SquashApps" 
             designation="Junior Software Engineer" @my-emit="captureEmit($event)"/>
     </div>
+    
 </template>
 <script>
 import HelloWorld from './HelloWorld.vue'
