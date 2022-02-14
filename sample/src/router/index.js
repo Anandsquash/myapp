@@ -3,6 +3,7 @@ import HelloWorld from '../components/HelloWorld.vue'
 import AboutUs from '../components/AboutUs.vue'
 import Form1 from '../components/Form1.vue'
 import Form2 from '../components/Form2.vue'
+import Form3 from '../components/Form3.vue'
 
 
 const routes = [
@@ -25,7 +26,12 @@ const routes = [
   {
     path: '/form2',
     component: Form2
+  },
+  {
+    path: '/form3',
+    component: Form3
   }
+
 ]
 
 const router = createRouter({

@@ -26,13 +26,13 @@
   <div>
       <label>Phone Number </label>
       <!-- <InputText id="mobile" placeholder="Phone Number" class="textBox" /> -->
-      <InputNumber id="mobile" v-model="mobile" :useGrouping="false" class="textBox"  />
+      <InputNumber id="mobile" v-model="mobile" :min="0" :max="10" :useGrouping="false" class="textBox"  />
   </div>   
   <div >
       <Button label="Next" class="textBox"/>
   </div>
   <div> 
-    <h6>Already have an account?</h6>
+    <h6>Already have an account? <span style="color:orange">Log in</span></h6>
     
   </div>
     
@@ -58,7 +58,7 @@ export default {
 };
 </script>
 <style >
-h1,h6 {
+h1,h5,h6,p {
   text-align: center;
 }
 
@@ -73,9 +73,9 @@ h1,h6 {
   margin-top: 5%;
 
 }
-.name{
+/* .name{
     width:100%;
-}
+} */
 
 .textBox{
     width: 100% !important;

@@ -1,10 +1,12 @@
 <template>
     <div class="details">
         <h1>Add Your Company Details</h1>
-        <div>
-            <img src="C:\Anand\Project\myapp\sample\src\assets\clogo.png" id="logo">
-            <span style="color:orange">Upload your company logo</span>
-        </div>
+        <div style="display:flex;margin-bottom: 15px">
+            <div style="border: 1px solid gray;border-radius: 50%;">
+                <img src="C:\Anand\Project\myapp\sample\src\assets\clogo.png" class="logo">
+            </div>
+            <span style="color:orange;margin:30px">Upload your company logo</span>
+        </div> 
         <div class="name">
             <label>Company Details </label>
             <InputText v-model="cname" id="cname" placeholder="Company Name" class="textBox" />      
@@ -21,12 +23,13 @@
             <label>Year of Experience</label>
             <InputText v-model="experience" id="experience" placeholder="Year of Experience" class="textBox" />
         </div>
-        <div>
+        <div style="margin-bottom:20px">
             <Checkbox id="binary" v-model="checked" :binary="true" />
             I accept the <span style="color:orange">terms and conditions</span>
         </div>
-        <div>
+        <div class="footer">
             <Button label="Back" class="back"/>
+
             <Button label="Send OTP" class="otp"/>
         </div>
 
@@ -35,42 +38,28 @@
 </template>   
 <script>
 export default {
-  name: "Form1",
+  name: "Form2",
   data(){
-      return{
-          selectedCountries: null,
-          selectedStates: null,
-          fname:'',
-          countries: ['Australia','China','India','Pakistan','Russia','United States'],
-          states: ['New South Wales', 'Queensland', 'Tibet','Qinghai','Karnataka','Tamil Nadu','Balochistan'
-          ,'Gilgit-Baltistan','Altay','Amur','Texas','California']
-      }      
+
   }    
 };
 </script>
-<style scoped>
+<style >
+.footer{
+display:flex;
+gap:3%;
+}
 .back{
-    /* width :333px;
-    height:40px */
-    /* height: 40px;
-width: 97px;
-left: 0px;
-top: 0px;
-border-radius: 3px;   */
-/* margin-right: 20px; */
-margin-top: 10px ;
-width: 115px;
+width:17% !important;
 }
 .otp{
-    width :933px;
-Height :40px;
-Radius :3px;
-margin-left: 16px;
+width:80% !important;
 
 }
-#logo{
+.logo{
     width:80px;
     height:80px;
+    object-fit: cover;
 }
 
 </style>
