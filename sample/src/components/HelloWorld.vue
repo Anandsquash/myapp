@@ -6,6 +6,10 @@
     <span> Company :</span> <span> {{company}}</span> <br>
     <span> Designation :</span><span> {{designation}}</span> <br>
     <Button v-on:click="buttonClicked()">Emit Button</Button>
+    <p v-once>{{ message }} </p>
+    <p>{{ message }} {{getMessage()}}</p>
+    <a v-bind:href="link" v-bind:title="title">SquashApps</a>
+    <p v-html="url"></p>
         
     <!-- <h2>{{nameF}}</h2> -->
   </div>
@@ -14,12 +18,22 @@
 <script>
 export default {
   name: 'HelloWorld',
+  data() {
+    return {
+      message: "This is Binding Concept",
+      link: "https://squashapps.com/",
+      url:"<a href='https://www.google.com'>Google</a>",
+      title:"ClickMeSquash"
+    }
+    
+  },
   props: {
     
     name: String,
     company:String,
     designation:String,
-    msg: String
+    msg: String,
+    
   },
   methods:{
     buttonClicked(){
@@ -28,6 +42,9 @@ export default {
     },
     emitEvent(){
       this.$emit("my-emit",this.name)
+    },
+    getMessage(){
+      this.message="Learning Binding Concept"
     }
   },
   mounted(){
@@ -58,4 +75,5 @@ export default {
     color:rgb(6, 6, 17);
     font-size:large;
   }
+  
 </style>

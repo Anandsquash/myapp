@@ -1,4 +1,6 @@
 <template>
+  <!-- <router-link to="form2">Form2</router-link>
+  <router-link to="form3">Form3</router-link> -->
   <router-view/>
 </template>
 
@@ -7,7 +9,6 @@
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* text-align: center; */
   color: #2c3e50;
 }
 

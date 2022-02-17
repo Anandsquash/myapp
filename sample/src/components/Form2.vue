@@ -1,4 +1,5 @@
 <template>
+    
     <div class="details">
         <h1>Add Your Company Details</h1>
         <div style="display:flex;margin-bottom: 15px">
@@ -28,15 +29,16 @@
             I accept the <span style="color:orange">terms and conditions</span>
         </div>
         <div class="footer">
-            <Button label="Back" class="back"/>
+            <Button label="Back" class="back" v-on:click="$router.push('/form1')"/>
 
-            <Button label="Send OTP" class="otp"/>
+            <Button label="Send OTP" class="otp" v-on:click="$router.push('/form3')"/>
         </div>
 
 
     </div>
 </template>   
 <script>
+// import '../assets/styles/style.scss';
 export default {
   name: "Form2",
   data(){
@@ -45,6 +47,7 @@ export default {
 };
 </script>
 <style >
+
 .footer{
 display:flex;
 gap:3%;

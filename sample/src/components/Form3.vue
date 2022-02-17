@@ -15,7 +15,7 @@
             </div>                        
         </div>
         <div class="footer">
-            <Button label="Back" class="back"/>
+            <Button label="Back" class="back" v-on:click="$router.push('/form2')"/>
             <Button label="Verify OTP" class="otp"/>
         </div>
         <div>

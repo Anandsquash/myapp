@@ -29,7 +29,7 @@
       <InputNumber id="mobile" v-model="mobile" :min="0" :max="10" :useGrouping="false" class="textBox"  />
   </div>   
   <div >
-      <Button label="Next" class="textBox"/>
+      <Button label="Next" class="textBox" v-on:click="nextClicked()"/>
   </div>
   <div> 
     <h6>Already have an account? <span style="color:orange">Log in</span></h6>
@@ -39,6 +39,7 @@
   </div>
 </template>
 <script>
+import router from '@/router'
 export default {
   name: "Form1",
   data(){
@@ -53,7 +54,12 @@ export default {
           ,'Gilgit-Baltistan','Altay','Amur','Texas','California']
       }
       
-  } 
+  } ,
+  methods:{
+    nextClicked(){
+      router.push('/form2')
+    }
+  }
    
 };
 </script>
