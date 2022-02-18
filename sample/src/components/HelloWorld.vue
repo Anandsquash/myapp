@@ -1,17 +1,19 @@
 <template>
-  <div class="hello">
-    <h1>In HelloWorld Component</h1>
-    <h1>{{ msg }}</h1>
-    <span> Name :</span> <span>{{name}}</span> <br>
-    <span> Company :</span> <span> {{company}}</span> <br>
-    <span> Designation :</span><span> {{designation}}</span> <br>
-    <Button v-on:click="buttonClicked()">Emit Button</Button>
-    <p v-once>{{ message }} </p>
-    <p>{{ message }} {{getMessage()}}</p>
-    <a v-bind:href="link" v-bind:title="title">SquashApps</a>
-    <p v-html="url"></p>
+  <div >
+    <div class="hello">
+      <h1>In HelloWorld Component</h1>
+      <h1>{{ msg }}</h1>
+      <span> Name :</span> <span>{{name}}</span> <br>
+      <span> Company :</span> <span> {{company}}</span> <br>
+      <span> Designation :</span><span> {{designation}}</span> <br>
+      <Button v-on:click="buttonClicked()">Emit Button</Button>
+      <p v-once>{{ message }} </p>
+      <p>{{ message }} {{getMessage()}}</p>
+      <a v-bind:href="link" v-bind:title="title">SquashApps</a>
+      <p v-html="url"></p>
         
     <!-- <h2>{{nameF}}</h2> -->
+    </div>
   </div>
 </template>
 
@@ -65,9 +67,9 @@ export default {
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped>
+<style >
 
-  .hello{
+  .test{
     border:1px solid red;
     background-color: aqua;
   }
