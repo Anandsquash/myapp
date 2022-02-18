@@ -4,8 +4,8 @@
   <router-view/>
 </template>
 
-<style lang='scss'>
-@import "/assets/styles/style.scss";
+<style >
+/* @import "/assets/styles/style.scss"; */
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
