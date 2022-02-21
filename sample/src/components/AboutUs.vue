@@ -6,16 +6,16 @@
             designation="Junior Software Engineer" @my-emit="captureEmit($event)"/>
     </div>
     <div>
-      <h3>{{store.state.vmsg}}</h3>
-      <h4>{{store.state.count}}</h4>
+      <!-- <h3>{{msg}}</h3> -->
+      <!-- <h4>{{store.state.count}}</h4>
        <button @click="increment()">IncrementButton</button>
-       <button @click="store.state.count--">DecrementButton</button>
+       <button @click="store.state.count--">DecrementButton</button> -->
      </div>
   </div>  
 </template>
 <script>
 // import { computed } from '@vue/runtime-core'
-import {store} from './../Vuex.js'
+// import {store} from './../Vuex.js'
 import HelloWorld from './HelloWorld.vue'
 export default {
   name: 'AboutUs',
@@ -24,17 +24,22 @@ export default {
   },
   data(){
     return{
-      store
+      // store
     }
   },
-  methods:{
-      captureEmit(event){
-          console.log(event)
-      },
-      increment() {
-    //this.store.commit('increment')
-    store.increment();
-  }
+  // methods:{
+  //     captureEmit(event){
+  //         console.log(event)
+  //     },
+  //     increment() {
+  //   //this.store.commit('increment')
+  //   store.increment();
+  //   }
+  // },
+  computed:{
+    // msg () {
+    //   // return store.state.msg
+    // }
   }
 }
 </script>

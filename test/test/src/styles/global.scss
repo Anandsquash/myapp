@@ -1,0 +1,76 @@
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@200;400;500;600;700;800;900&display=swap");
+
+// Colors
+$primary-color: #6F33C0;
+$secondary-color: #1B283B;
+$black-color: #ffffff;
+$white-color: #ffffff;
+$primary-text-color: #061238;
+$secondary-text-color: #ffffff80;
+$light-text-color: #0200384d;
+$sky-blue-color: #54b7f9;
+
+$font-family: Nunito;
+
+.pm-txt-color {
+  color: $secondary-color !important;
+}
+
+.sc-txt-color {
+  color: $secondary-text-color !important;
+}
+
+.lt-txt-color {
+  color: $light-text-color !important;
+}
+
+.font-size-1 {
+  font-size: 1rem;
+}
+
+p,
+.hk-grotest {
+  font-family: Nunito;
+}
+
+.hk-grotest-bold {
+  font-family: Nunito !important;
+}
+
+.p-component {
+  font-family: Nunito !important;
+  font-size:0.896rem !important;
+  color:#171717 !important;
+}
+
+.full-width {
+  width: 100%;
+}
+
+.text-align-center {
+  text-align: center;
+}
+
+.bold-500 {
+  font-weight: 500;
+}
+
+.bold-700 {
+  font-weight: 700;
+}
+
+.position-relative {
+  position: relative;
+}
+
+.position-absolute {
+  position: absolute;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+::v-deep .p-dialog .p-dialog-header .p-dialog-header-icon:last-child {
+  margin-right: 0;
+  display: none !important ;
+}

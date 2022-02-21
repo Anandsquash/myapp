@@ -3,7 +3,7 @@
     <h1>Add Your Personal Details</h1>
     <div class="name">
         <label>Full Name </label>
-      <InputText v-model="fname" id="username" placeholder="Full name" class="textBox" />
+      <InputText v-model="fname" @onInput="getFormData($event, 'username')" id="username" placeholder="Full name" class="textBox" />
       <!-- <label for="username">Username</label> -->
     </div>
     <div>
@@ -26,10 +26,11 @@
   <div>
       <label>Phone Number </label>
       <!-- <InputText id="mobile" placeholder="Phone Number" class="textBox" /> -->
-      <InputNumber id="mobile" v-model="mobile" :min="0" :max="10" :useGrouping="false" class="textBox"  />
+      <InputNumber id="mobile" @onInput="getFormData($event, 'mobile')" v-model="mobile" :min="0" :max="10" :useGrouping="false" class="textBox"  />
   </div>   
   <div >
-      <Button label="Next" class="textBox" v-on:click="nextClicked()"/>
+      <!-- <Button label="Next" class="textBox" v-on:click="nextClicked()"/> -->
+      <Button label="Next" class="textBox" @click="submit"/>
   </div>
   <div> 
     <h6>Already have an account? <span style="color:orange">Log in</span></h6>
@@ -40,10 +41,18 @@
 </template>
 <script>
 import router from '@/router'
+import { mapActions, mapGetters } from "vuex";
+
 export default {
   name: "Form1",
   data(){
       return{
+        formData: {
+        // id:"",
+        username: "",
+        mobile:"",
+        
+      },
         value1: 'Off',
         options: ['Male', 'Female','Other'],
           selectedCountries: null,
@@ -58,9 +67,23 @@ export default {
   methods:{
     nextClicked(){
       router.push('/form2')
-    }
-  }
-   
+    },
+    getFormData(value, fieldName) {
+     this.formData[fieldName] = value
+      this.formData = { ...this.formData }
+      // this.formData =this.properties[this.$route.params.id]
+      
+    },
+  },
+  computed:{
+     ...mapGetters([
+      "property",
+    ]),
+
+  },
+  created() {
+  console.log('property==>',this.property);
+  },
 };
 </script>
 <style >
