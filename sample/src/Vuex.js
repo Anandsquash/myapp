@@ -1,3 +1,4 @@
+
 // import { createStore } from "vuex";
 
 // const store = createStore({
@@ -22,8 +23,7 @@ export const store = reactive({
   state:{
     vmsg:'This is State and Store from Vuex',
     count: 0
-  },
- 
+  }, 
   increment() {
     this.state.count++
   },

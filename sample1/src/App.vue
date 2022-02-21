@@ -15,7 +15,7 @@
   color: #2c3e50;
   // color: $primary;
 }
-@import "/assets/style.scss";
+// @import "/assets/style.scss";
 #nav {
   padding: 30px;
 
