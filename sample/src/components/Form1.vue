@@ -41,7 +41,7 @@
 </template>
 <script>
 import router from '@/router'
-import { mapActions, mapGetters } from "vuex";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Form1",
@@ -79,11 +79,17 @@ export default {
      ...mapGetters([
       "property",
     ]),
+  //   ...mapActions([
+
+  // ])
 
   },
   created() {
   console.log('property==>',this.property);
   },
+  // ...mapActions([
+
+  // ])
 };
 </script>
 <style >

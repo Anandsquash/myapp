@@ -35,7 +35,20 @@ import { createStore } from "vuex";
 
 export default createStore({
   state: {
-    property:[]
+    property:[
+      // {
+      //   name:"anaand",
+      //   mobile:"867896868"
+      // },
+      // {
+      //   name:"Balaji",
+      //   mobile:"867896868"
+      // },
+      // {
+      //   name:"RamG",
+      //   mobile:"867896868"
+      // }
+    ]
   },
   getters:{
     property: (state) => state.property,
