@@ -39,15 +39,7 @@ export default createStore({
       // {
       //   name:"anaand",
       //   mobile:"867896868"
-      // },
-      // {
-      //   name:"Balaji",
-      //   mobile:"867896868"
-      // },
-      // {
-      //   name:"RamG",
-      //   mobile:"867896868"
-      // }
+      // },      
     ]
   },
   getters:{
@@ -55,15 +47,23 @@ export default createStore({
 
   },
   mutations:{
-    addProperty({ property }, payload) {
+    addProperty1({ property }, payload) {
       property.push(payload)
       console.log('property=>>',property)
     },
+    deleteProperty1({property},payload){
+      //property.pop()
+      property.splice(payload, 1);
+      console.log('property=>>',property,payload)
+    }
   },
   actions:
   {
     addProperty(context, payload) {
-      context.commit("addProperty", payload)
+      context.commit("addProperty1", payload)
     }, 
+    deleteProperty(context,payload){
+      context.commit("deleteProperty1",payload)
+    }
   }
 })
