@@ -1,14 +1,46 @@
 <template>
-  <!-- <router-link to="form2">Form2</router-link>
-  <router-link to="form3">Form3</router-link> -->
-  <div class="sidenav">
-      <span>Gate Wears</span>
-    <a href="#about">About</a>
-    <a href="#services">Services</a>
-    <a href="#clients">Clients</a>
-    <a href="#contact">Contact</a>
-</div>
-  <router-view/>
+  <div class="container">
+    <div class="frame1">
+      <div class="header">
+        <p>Gate Wears</p>
+        <hr>
+      </div>
+      <div class="nav">
+        <span>Dashboards</span>
+        <p style="font-size: 11px;color:white">All report are seen under Analytics</p>
+        <a href="#analytics">Analytics</a>        
+      </div>
+      <div class="nav">
+        <span>Business</span>
+        <p style="font-size: 11px;color:white">Other Details</p>
+        <a href="#buyers">Buyers</a>   
+        <a href="#orders">Orders</a>  
+        <a href="#subcontractors">Subcontractors</a>       
+      </div>
+      <div class="nav">
+        <span>Inventory</span>
+        <p style="font-size: 11px;color:white">Order items and find items in rack</p>
+        <a href="#stores">Stores</a>   
+        <a href="#item">Item</a>  
+        <a href="#supplier">Suppliers</a>       
+      </div>
+      <div class="nav">
+        <span>Global Setting</span>
+        <p style="font-size: 11px;color:white">Other Details</p>
+        <a href="#stores">Settings</a>  
+               
+      </div>
+      
+      
+    </div>
+    <div class="frame2">      
+        <span class="p-input-icon-left">
+            <i class="pi pi-search" />
+            <InputText type="text" v-model="search" placeholder="Search" class="p-inputtext "/>
+        </span>      
+      <router-view/>
+    </div>
+  </div>
 </template>
 
 <style >
@@ -18,18 +50,70 @@
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #2c3e50;
+  height:100%;
 }
-
-#nav {
-  padding: 30px;
+.p-inputtext {
+    margin: 0;
+    width: 100%;
 }
+.container{
+  display: flex;
+  flex-direction: row;
+  /* color:white; */
 
-#nav a {
+}
+.nav a {
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 15px;
+  color: #818181;
+  display: block;
+  
+}
+.nav a:hover {
+  color: #f1f1f1;
+  
+}
+.frame1{
+  width:15%;
+  background-color: #1B283B;;
+  display:flex;
+  flex-direction: column;
+  padding: 15px; 
+  padding-top: 2px; 
+
+}
+.frame2{
+  width:85%;
+  display:flex;
+  flex-direction: column;
+}
+.header {
+  text-align: left;
   font-weight: bold;
-  color: #2c3e50;
+  font-family: Abhaya Libre;
+  color: white;
+}
+span{
+  font-family: Nunito;
+font-style: normal;
+font-weight: 600;
+font-size: 16px;
+/* line-height: 32px; */
+display: flex;
+align-items: center;
+color: #E7F788;
+width: 100%;
+}
+p{
+  display: flex;
+  align-items: center;
+}
+hr {
+  /* border-top: 1px dashed red; */
+  border: 1px dashed #FFFFFF;
+  
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
+
 </style>
