@@ -114,13 +114,22 @@ export default {
 };
 </script>
 <style >
-.col {
+
+table {
+  font-family: 'Open Sans', sans-serif;
+  width: 750px;
+  background: #D4D8F9;
+  border-collapse: collapse;
+  border: 3px solid #44475C;
+  margin: 10px 10px 10px 10px;
+}
+/* .col {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse; 
-  width: 100% !important;
+  width: 100% !important; */
   
 
-}
+
  td,th {
   border: 1px solid black;
   padding: 8px; 

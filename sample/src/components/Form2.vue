@@ -50,6 +50,7 @@ export default {
 
 .footer{
 display:flex;
+/* display: inline-flex; */
 gap:3%;
 }
 .back{

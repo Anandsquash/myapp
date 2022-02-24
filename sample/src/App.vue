@@ -1,6 +1,13 @@
 <template>
   <!-- <router-link to="form2">Form2</router-link>
   <router-link to="form3">Form3</router-link> -->
+  <div class="sidenav">
+      <span>Gate Wears</span>
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#clients">Clients</a>
+    <a href="#contact">Contact</a>
+</div>
   <router-view/>
 </template>
 
