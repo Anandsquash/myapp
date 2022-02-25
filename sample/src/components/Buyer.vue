@@ -1,38 +1,201 @@
 <template>
-    <div style="display:flex;flex-direction:row">
-        <h4 style="width:50%;padding:10px">Buyers</h4>
+    <div class="bdetails">
+    <div class="bhead">
+        <h4 style="width:50%;margin:10px">Buyers</h4>
         <div style="width:50%;display:flex;flex-direction:row-reverse !important;">
-            <Button label="Add New" style="width:20%;margin:15px;"/>
+            <Button  style="width:20%;margin:10px;padding:15px;" @click="addNew"><span style="color:black">Add New</span></Button>
+            <i class="pi pi-filter" style=margin:20px></i>
         </div>
     </div>
-    <div></div>
+    <div class="bfoot" >        
+        <table id="firstTable">
+  <thead>
+    <tr>
+       <th>ID</th> 
+      <th>Name</th>
+      <th>Contact Person</th>
+      <th>Contact No</th>
+      <th>Address</th>
+      <th>Phone</th>
+      <th>Fax No</th>
+      <th>Email ID</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr v-for="user in users" :key="user">
+      <td>{{user.id}}</td>
+      <td>{{user.name}}</td>
+      <td>{{user.contactPerson}}</td>
+      <td>{{user.contactno}}</td>
+      <td>{{user.address}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.faxno}}</td>
+      <td>{{user.email}}</td>
+    </tr>
+  </tbody>
+</table>
+    </div>
+    <Dialog header="Add Buyer" v-model:visible="displayaddNew" :style="{width: '50%'}" >
+            <div class="bdialog">
+                <div class="details">
+                    <div style="display:flex;margin-bottom: 15px">
+                        <div style="border: 1px solid gray;border-radius: 50%;">
+                            <img src="C:\Anand\Project\myapp\sample\src\assets\clogo.png" class="logo">
+                        </div>            
+                    </div>
+                    <div >
+                        <label>Business Name</label>
+                        <InputText v-model="businessname" id="businessname" placeholder="Business Name" />      
+                    </div>
+                    <div class="contact">
+                        <div >
+                            <label>Contact Person</label>
+                            <InputText v-model="contactPerson" id="contactPerson" placeholder="contactPerson" class="textBox" />      
+                        </div>
+                        <div>
+                            <label>Contact No</label>
+                            <InputText v-model="contactNo" id="contactNo" placeholder="contactNo" class="textBox" />
+                        </div>
+                    </div>
+                    <div >
+                        <label>Address</label>                        
+                        <Textarea v-model="address" id="address" placeholder="address"  />      
+                    </div>
+                    <div class="contact">
+                            <div>
+                            <label>Postal</label>
+                            <InputText v-model="postal" id="postal" placeholder="postal" class="textBox" />      
+                            </div>
+                            <div >
+                            <label>Country</label>
+                            <InputText v-model="country" id="country" placeholder="country" class="textBox" />      
+                        </div>
+                    </div>
+                    <div class="contact">
+                            <div>
+                            <label>State</label>
+                            <InputText v-model="state" id="state" placeholder="state" class="textBox" />      
+                            </div>
+                            <div >
+                            <label>City</label>
+                            <InputText v-model="city" id="city" placeholder="city" class="textBox" />      
+                        </div>
+                    </div>
+                    <div class="contact">
+                            <div>
+                            <label>Fax No</label>
+                            <InputText v-model="faxno" id="faxno" placeholder="faxno" class="textBox" />      
+                            </div>
+                            <div >
+                            <label>Phone No</label>
+                            <InputText v-model="phoneno" id="phoneno" placeholder="phoneno" class="textBox" />      
+                        </div>
+                    </div>
+                    <div class="contact">
+                            <div>
+                            <label>Email Id</label>
+                            <InputText v-model="email" id="email" placeholder="email" class="textBox"/>      
+                            </div>
+                            <div >
+                            <label>Website</label>
+                            <InputText v-model="website" id="website" placeholder="website" class="textBox" />      
+                        </div>
+                    </div>
+                
+                    <span>+Add Address</span>
+                
+
+                </div>
+            </div>
+            <div id='footer'>
+                <Button label="Submit" icon="pi pi-check" autofocus />
+                <Button label="Close" icon="pi pi-times"  class="p-button-text"/>
+                
+            </div>
+        </Dialog>
+    </div>
 </template>
 <script>
 
 export default {
   name: "Buyer",
+  el: '#firstTable',
   data(){
-
-  }    
+      return {
+          users: [
+      { id:1,name: "American Eagle",contactPerson:'Wade Warren',contactno:'9876543210',address:'3452 Mariamman Kovil Street,Tirupur, 541215', phone: '+65 8954 5456', faxno: '+65 8954 5456',email:'BradSimmons@gmail.com' },
+      { id:2,name: "Renuar",contactPerson:'Jacob Jones',contactno:'9876543310',address:'3452 Mariamman Kovil Street,Tirupur, 541215', phone: '+65 8954 5456', faxno: 'IT Manager',email:'BradSimmons@gmail.com' },
+      { id:3,name: "Stradivarius",contactPerson:'Jenny Wilson',contactno:'9865543210',address:'3452 Mariamman Kovil Street,Tirupur, 541215', phone: '+65 8954 5456', faxno: '+65 8954 5456',email:'BradSimmons@gmail.com' },
+      { id:4,name: "Zara",contactPerson:'Wade Warren',contactno:'9876543240',address:'3452 Mariamman Kovil Street,Tirupur, 541215', phone: '+65 8954 5456', faxno: '+65 8954 5456',email:'BradSimmons@gmail.com' },
+      { id:5,name: "H&M",contactPerson:'Leslie Alexander',contactno:'9876543260',address:'3452 Mariamman Kovil Street,Tirupur, 541215', phone: '+65 8954 5456', faxno: '+65 8954 5456',email:'BradSimmons@gmail.com' },
+      { id:6,name: "Bershka",contactPerson:'Esther Howard',contactno:'9876543710',address:'3452 Mariamman Kovil Street,Tirupur, 541215', phone: '+65 8954 5456', faxno: '+65 8954 5456',email:'BradSimmons@gmail.com' },
+    ],
+    displayaddNew: false
+      }
+      
+    
+  },
+  methods: {
+        addNew() {
+            this.displayaddNew = true;
+        },
+  }  
 }
 </script>
 <style scoped>
 .bdetails{
     display: flex;
     flex-direction: column;
+    height: 100%;
 }
+.textbox{
+    width:301px !important; 
+    height: 38.46px !important; 
+}
+.contact{
+    display: flex;
+    flex-direction: row;   
+    /* align-items: flex-start; */
+    align-content: flex-start;
+    gap: 20px;
+}
+#footer{
+    display: flex;
+    flex-direction: row-reverse;
+}
+.bdialog{
+    margin: 10%;
+}
+table {
+  font-family: 'Open Sans', sans-serif;
+  width: 100%;
+  border-collapse: collapse;
+  border: 3px solid #44475C;
+  margin: 10px 10px 0 10px;
+}
+table th {
+text-align: left;
+  background: #F2F2F2;;
+  color: black;
+  padding: 8px;
+  
+  
+}
+table td {
+  text-align: left;
+  padding: 8px;
+  /* border-right: 2px solid #7D82A8; */
+  height: 100%;
+}
+
 .bhead{
     display: flex;
     flex-direction: row;   
-    width: 10%;
+    height:10%;
 }
 .bfoot{
     display: flex;
     flex-direction: row;   
-    width: 90%;
-}
-.iconsStyle{
-    display: flex;
-    flex-direction: row-reverse !important;    
+    /* height: 90%; */
 }
 </style>

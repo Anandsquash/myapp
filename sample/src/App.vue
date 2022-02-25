@@ -13,7 +13,7 @@
       <div class="nav">
         <span>Business</span>
         <p style="font-size: 11px;color:white">Other Details</p>
-        <a href="#buyers">Buyers</a>   
+        <a v-on:click="$router.push('/')">Buyers</a>   
         <a href="#orders">Orders</a>  
         <a href="#subcontractors">Subcontractors</a>       
       </div>
