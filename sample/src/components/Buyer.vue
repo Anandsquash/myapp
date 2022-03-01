@@ -35,7 +35,7 @@
   </tbody>
 </table>
     </div>
-    <Dialog header="Add Buyer" v-model:visible="displayaddNew" :style="{width: '50%'}" >
+    <Dialog header="Add Buyer" v-model:visible="displayaddNew" :style="{width: '60%'}" >
             <div class="bdialog">
                 <div class="details">
                     <div style="display:flex;margin-bottom: 15px">
@@ -43,62 +43,62 @@
                             <img src="C:\Anand\Project\myapp\sample\src\assets\clogo.png" class="logo">
                         </div>            
                     </div>
-                    <div >
+                    <div>
                         <label>Business Name</label>
-                        <InputText v-model="businessname" id="businessname" placeholder="Business Name" />      
+                        <InputText v-model="businessname" id="businessname" placeholder="Business Name" class="btextBox"/>      
                     </div>
                     <div class="contact">
                         <div >
                             <label>Contact Person</label>
-                            <InputText v-model="contactPerson" id="contactPerson" placeholder="contactPerson" class="textBox" />      
+                            <InputText v-model="contactPerson" id="contactPerson" placeholder="contactPerson" class="btextBox" />      
                         </div>
                         <div>
                             <label>Contact No</label>
-                            <InputText v-model="contactNo" id="contactNo" placeholder="contactNo" class="textBox" />
+                            <InputText v-model="contactNo" id="contactNo" placeholder="contactNo" class="btextBox" />
                         </div>
                     </div>
                     <div >
                         <label>Address</label>                        
-                        <Textarea v-model="address" id="address" placeholder="address"  />      
+                        <Textarea v-model="address" id="address" placeholder="address" class="btextBox" />      
                     </div>
                     <div class="contact">
                             <div>
-                            <label>Postal</label>
-                            <InputText v-model="postal" id="postal" placeholder="postal" class="textBox" />      
+                            <label>Postal</label>                            
+                            <InputNumber v-model="postal" id="postal" placeholder="postal" :min="0" :max="8" :useGrouping="false" class="btextBox"  />      
                             </div>
                             <div >
-                            <label>Country</label>
-                            <InputText v-model="country" id="country" placeholder="country" class="textBox" />      
+                            <label>Country</label>                            
+                            <Dropdown v-model="selectedCountries" :options="countries" placeholder="Select a Country" class="btextBox" />      
                         </div>
                     </div>
                     <div class="contact">
                             <div>
-                            <label>State</label>
-                            <InputText v-model="state" id="state" placeholder="state" class="textBox" />      
+                            <label>State</label>                            
+                            <Dropdown v-model="selectedStates" :options="states" placeholder="Select a State" class="btextBox" />      
                             </div>
                             <div >
-                            <label>City</label>
-                            <InputText v-model="city" id="city" placeholder="city" class="textBox" />      
+                            <label>City</label>                             
+                            <Dropdown v-model="selectedcities" :options="cities" placeholder="Select a City" class="btextBox" />     
                         </div>
                     </div>
                     <div class="contact">
                             <div>
                             <label>Fax No</label>
-                            <InputText v-model="faxno" id="faxno" placeholder="faxno" class="textBox" />      
+                            <InputText v-model="faxno" id="faxno" placeholder="faxno" class="btextBox" />      
                             </div>
                             <div >
-                            <label>Phone No</label>
-                            <InputText v-model="phoneno" id="phoneno" placeholder="phoneno" class="textBox" />      
+                            <label>Phone No</label>                            
+                            <InputNumber v-model="phoneno" id="phoneno" placeholder="phoneno" :min="0" :max="8" :useGrouping="false" class="btextBox"  />      
                         </div>
                     </div>
                     <div class="contact">
                             <div>
                             <label>Email Id</label>
-                            <InputText v-model="email" id="email" placeholder="email" class="textBox"/>      
+                            <InputText v-model="email" id="email" placeholder="email" class="btextBox"/>      
                             </div>
                             <div >
                             <label>Website</label>
-                            <InputText v-model="website" id="website" placeholder="website" class="textBox" />      
+                            <InputText v-model="website" id="website" placeholder="website" class="btextBox" />      
                         </div>
                     </div>
                 
@@ -130,8 +130,15 @@ export default {
       { id:5,name: "H&M",contactPerson:'Leslie Alexander',contactno:'9876543260',address:'3452 Mariamman Kovil Street,Tirupur, 541215', phone: '+65 8954 5456', faxno: '+65 8954 5456',email:'BradSimmons@gmail.com' },
       { id:6,name: "Bershka",contactPerson:'Esther Howard',contactno:'9876543710',address:'3452 Mariamman Kovil Street,Tirupur, 541215', phone: '+65 8954 5456', faxno: '+65 8954 5456',email:'BradSimmons@gmail.com' },
     ],
+        selectedCountries: null,
+        selectedStates: null,
+        countries: ['Australia','China','India','Pakistan','United States'],
+        states: ['New South Wales', 'Queensland', 'Tibet','Qinghai','Karnataka','Tamil Nadu','Balochistan'
+          ,'Gilgit-Baltistan','Texas','California'],
+        cities:['Sydney','Melbourne','Hong Kong','Beijing','Chennai','Coimbatore','Madurai','Karachi','Lahore','New York','Los Angeles'],
     displayaddNew: false
       }
+
       
     
   },
@@ -148,9 +155,12 @@ export default {
     flex-direction: column;
     height: 100%;
 }
-.textbox{
-    width:301px !important; 
-    height: 38.46px !important; 
+.btextBox{
+
+    width: 100% !important;
+    margin-top: 10px !important;
+    margin-bottom: 10px !important;
+    
 }
 .contact{
     display: flex;

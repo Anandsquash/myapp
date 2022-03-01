@@ -10,6 +10,7 @@ import SelectButton from 'primevue/selectbutton';
 import Checkbox from 'primevue/checkbox';
 import Dialog from 'primevue/dialog';
 import Textarea from 'primevue/textarea';
+// import axios from 'axios';
 // import vuex from 'vuex'
 // import store from "./Vuex.js";
 import store from "./store"
@@ -23,6 +24,7 @@ app.use(router)
 app.use(PrimeVue)
 // app.use(vuex)
 app.use(store)
+// app.use(axios)
 app.component('Dialog',Dialog)
 app.component('InputText',InputText)
 app.component('Textarea',Textarea)

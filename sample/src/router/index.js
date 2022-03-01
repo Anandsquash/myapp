@@ -6,6 +6,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 // import Form3 from '../components/Form3.vue'
 // import test from '../components/test.vue'
 import Buyer from '../components/Buyer.vue'
+import sample from '../components/sample.vue'
 
 
 const routes = [
@@ -40,6 +41,10 @@ const routes = [
   {
       path: '/',
       component: Buyer
+    },
+    {
+      path: '/sample',
+      component: sample
     },
 
 

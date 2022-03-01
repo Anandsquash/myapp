@@ -92,7 +92,7 @@
   text-align: left;
   font-weight: bold;
   font-family: Abhaya Libre;
-  color: white;
+  /* color: white; */
 }
 span{
   font-family: Nunito;
