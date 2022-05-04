@@ -1,31 +1,48 @@
 <template>
-  <div id="nav">
-    <router-link to="/">Home</router-link> |
-    <router-link to="/about">About</router-link>
+  <div id="app">
+    <!-- <img src="./assets/logo.png">
+    <router-view/> -->
+    <!-- <product-list-one ></product-list-one>
+    <product-list-two ></product-list-two>    -->
+    <ProductListOne v-bind:products="products"></ProductListOne>
+    <ProductListTwo v-bind:products="products"></ProductListTwo>   
+
   </div>
-  <router-view/>
 </template>
 
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
+<script>
+import ProductListOne from './components/ProductListOne.vue';
+import ProductListTwo from './components/ProductListTwo.vue';
+export default {
+  components:{
+    ProductListOne,
+    ProductListTwo,
+  },
+  name: 'App',
+  data () {
+    return {
+      // products:[
+      //   {name:'Apple',price:40},
+      //   {name:'Banana',price:50},
+      //   {name:'Carrot',price:60},
+      //   {name:'Dry Fruits',price:70},
+      // ]
+    }
+  }
+}
+</script>
+
+<style>
+/* #app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  // color: $primary;
-}
-// @import "/assets/style.scss";
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
+  margin-top: 60px;
+} */
+body{
+    font-family: Ubuntu;
+    color: #555;
 }
 </style>
