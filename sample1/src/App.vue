@@ -4,8 +4,10 @@
     <router-view/> -->
     <!-- <product-list-one ></product-list-one>
     <product-list-two ></product-list-two>    -->
-    <ProductListOne v-bind:products="products"></ProductListOne>
-    <ProductListTwo v-bind:products="products"></ProductListTwo>   
+    <!-- <ProductListOne v-bind:products="products"></ProductListOne>
+    <ProductListTwo v-bind:products="products"></ProductListTwo>    -->
+    <ProductListOne></ProductListOne>
+    <ProductListTwo></ProductListTwo>   
 
   </div>
 </template>

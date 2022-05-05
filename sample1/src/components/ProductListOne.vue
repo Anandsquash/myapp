@@ -14,7 +14,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex';
+import {mapGetters,mapActions} from 'vuex';
 export default {  
 
 // props:['products'],
@@ -25,20 +25,21 @@ export default {
 //   }
 computed:{
     ...mapGetters([
-        'showProducts'        
-    ]),
-    ...mapGetters([        
+        'showProducts',
         'saleProducts'
-    ]),    
+    ]),       
     
 },
 methods:{
-  reducePrice:function(amount){
-    // this.$store.commit('reducePrice') directly from mutation commit
-    //dispatch action from store
-      this.$store.dispatch('reducePrice',amount)
+//   reducePrice:function(amount){
+//     // this.$store.commit('reducePrice') directly from mutation commit
+//     //dispatch action from store
+//       this.$store.dispatch('reducePrice',amount)
 
-  }
+//   }
+    ...mapActions([
+        'reducePrice'
+    ])
 }
 }
 </script>
