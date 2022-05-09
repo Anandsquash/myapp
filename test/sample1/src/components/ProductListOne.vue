@@ -2,14 +2,11 @@
   <div id="product-list-one">
    <h2>Product List One</h2>
    <ul>
-       <!-- <li v-for="product in saleProducts 
-       " :key='product'> -->
-       <li>
+       <li v-for="product in saleProducts 
+       " :key='product'>
 
-           <span class="name">{{product.title}}</span>
+           <span class="name">{{product.name}}</span>
            <span class="price">₹{{product.price}}</span>
-           <!-- <span class="name">{{product.name}}</span>
-           <span class="price">₹{{product.price}}</span> -->
        </li>      
    </ul>
    <button class="pricebtn" v-on:click="reducePrice(4)">Reduce Price</button>
@@ -17,33 +14,33 @@
 </template>
 
 <script>
-// import {mapGetters,mapActions} from 'vuex';
+import {mapGetters,mapActions} from 'vuex';
 export default {  
 
-props:["product"],
+// props:['products'],
 //   data () {
 //     return {
       
 //     }
 //   }
-// computed:{
-//     ...mapGetters([
-//         'showProducts',
-//         'saleProducts'
-//     ]),       
+computed:{
+    ...mapGetters([
+        'showProducts',
+        'saleProducts'
+    ]),       
     
-// },
-// methods:{
+},
+methods:{
 //   reducePrice:function(amount){
 //     // this.$store.commit('reducePrice') directly from mutation commit
 //     //dispatch action from store
 //       this.$store.dispatch('reducePrice',amount)
 
 //   }
-    // ...mapActions([
-    //     'reducePrice'
-    // ])
-// }
+    ...mapActions([
+        'reducePrice'
+    ])
+}
 }
 </script>
 

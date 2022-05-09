@@ -6,40 +6,31 @@
     <product-list-two ></product-list-two>    -->
     <!-- <ProductListOne v-bind:products="products"></ProductListOne>
     <ProductListTwo v-bind:products="products"></ProductListTwo>    -->
-    <ProductListOne v-for="product in products 
-       " :key='product' :product="product"></ProductListOne>
-    <!-- <ProductListTwo></ProductListTwo>    -->
+    <ProductListOne></ProductListOne>
+    <ProductListTwo></ProductListTwo>   
 
   </div>
 </template>
 
 <script>
 import ProductListOne from './components/ProductListOne.vue';
-// import ProductListTwo from './components/ProductListTwo.vue';
+import ProductListTwo from './components/ProductListTwo.vue';
 export default {
   components:{
     ProductListOne,
-    // ProductListTwo,
+    ProductListTwo,
   },
-  computed:{
-    products(){
-      return this.$store.state.products;
-    }
-  },
-  mounted(){
-    this.$store.dispatch('getProducts');
-  },
-  // name: 'App',
-  // data () {
-    // return {
+  name: 'App',
+  data () {
+    return {
       // products:[
       //   {name:'Apple',price:40},
       //   {name:'Banana',price:50},
       //   {name:'Carrot',price:60},
       //   {name:'Dry Fruits',price:70},
       // ]
-    // }
-  // }
+    }
+  }
 }
 </script>
 
