@@ -12,7 +12,7 @@
            <span class="price">₹{{product.price}}</span> -->
        </li>      
    </ul>
-   <button class="pricebtn" v-on:click="reducePrice(4)">Reduce Price</button>
+   <!-- <button class="pricebtn" v-on:click="reducePrice(4)">Reduce Price</button> -->
   </div>
 </template>
 

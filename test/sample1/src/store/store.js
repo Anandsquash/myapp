@@ -45,9 +45,15 @@ export default new Vuex.Store({
           name:'**'+product.name+'**',
           price:product.price/2
         }
-      })
+      })      
       return saleProducts
       
+    },
+    totalPrice:({products})=>{
+      let data=0;
+      products.map(item => item.price).reduce((prev, next) => data= prev + next);
+      console.log(data);     
+      return data
     }
   },
   mutations:{

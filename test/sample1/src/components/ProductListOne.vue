@@ -10,6 +10,10 @@
        </li>      
    </ul>
    <button class="pricebtn" v-on:click="reducePrice(4)">Reduce Price</button>
+   <div>    
+       <h2>Total</h2>
+       <span class="price">₹{{totalPrice}}</span>
+   </div>
   </div>
 </template>
 
@@ -23,10 +27,14 @@ export default {
       
 //     }
 //   }
+// created(){
+//     this.totalPrice
+// },
 computed:{
     ...mapGetters([
         'showProducts',
-        'saleProducts'
+        'saleProducts',
+        'totalPrice'
     ]),       
     
 },

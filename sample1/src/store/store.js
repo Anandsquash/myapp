@@ -71,7 +71,8 @@ export default new Vuex.Store({
   // }
   actions:{
     getProducts:({commit})=>{
-        axios.get('https://fakestoreapi.com/products')
+        // axios.get(`https://fakestoreapi.com/products/${payload}`)
+        axios.get('https://fakestoreapi.com/products/1')
         .then(response=>{
           commit('setProducts',response.data)
           console.log(response.data);
