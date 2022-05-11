@@ -36,22 +36,22 @@ export default new Vuex.Store({
       // { name: "Dry Fruits", price: 70 },
     ],
   },
-  // getters: {
-  //   showProducts: (state) => {
-  //     console.log(state);
-  //     return state.products;
-  //   },
-  //   saleProducts:(state)=>{
-  //     let saleProducts=state.products.map(product=>{
-  //       return{
-  //         name:'**'+product.name+'**',
-  //         price:product.price/2
-  //       }
-  //     })
-  //     return saleProducts
+  getters: {
+    showProducts: (state) => {
+      console.log(state);
+      return state.products;
+    },
+    saleProducts:(state)=>{
+      let saleProducts=state.products.map(product=>{
+        return{
+          name:'**'+product.name+'**',
+          price:product.price/2
+        }
+      })
+      return saleProducts
       
-  //   }
-  // },
+    }
+  },
   mutations:{
     // reducePrice:(state,payload)=>{
     //   state.products.forEach(product=>{
@@ -71,11 +71,21 @@ export default new Vuex.Store({
   // }
   actions:{
     getProducts:({commit})=>{
-        // axios.get(`https://fakestoreapi.com/products/${payload}`)
-        axios.get('https://fakestoreapi.com/products/1')
+      // console.log( '222222')
+
+      //         let  params = 1;
+
+      // axios.get('https://fakestoreapi.com/products',{
+      //     params:{
+      //       id:"1"
+      //     }
+      //   })
+        axios.get('https://fakestoreapi.com/products')
+        // axios.get(`https://fakestoreapi.com/products/${params}`, params)
         .then(response=>{
+          console.log(response, 'response')
           commit('setProducts',response.data)
-          console.log(response.data);
+          console.log(response.data,'response88');
         })
         // setTimeout(function(){
         //   context.commit('reducePrice',payload)

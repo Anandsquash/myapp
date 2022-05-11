@@ -4,10 +4,11 @@
    <ul>
        <!-- <li v-for="product in saleProducts 
        " :key='product'> -->
-       <li>
+       <li v-for="product in showProducts 
+       " :key='product' :product="product">
 
-           <span class="name">{{product.title}}</span>
-           <span class="price">₹{{product.price}}</span>
+           <span class="name">{{product.title}} </span>
+           <span class="price"> ₹ {{product.price}}</span>
            <!-- <span class="name">{{product.name}}</span>
            <span class="price">₹{{product.price}}</span> -->
        </li>      
@@ -17,33 +18,38 @@
 </template>
 
 <script>
-// import {mapGetters,mapActions} from 'vuex';
+import {mapGetters,mapActions} from 'vuex';
 export default {  
 
-props:["product"],
+// props:["product"],
 //   data () {
 //     return {
       
 //     }
 //   }
-// computed:{
-//     ...mapGetters([
-//         'showProducts',
-//         'saleProducts'
-//     ]),       
+computed:{
+    ...mapGetters([
+        'showProducts',
+        'saleProducts',
+        
+    ]),       
     
-// },
-// methods:{
+},
+mounted(){
+ console.log(this.showProducts,'');
+},
+methods:{
 //   reducePrice:function(amount){
 //     // this.$store.commit('reducePrice') directly from mutation commit
 //     //dispatch action from store
 //       this.$store.dispatch('reducePrice',amount)
 
 //   }
-    // ...mapActions([
-    //     'reducePrice'
-    // ])
-// }
+    ...mapActions([
+        'reducePrice',
+        'getProducts'
+    ])
+}
 }
 </script>
 
@@ -56,9 +62,10 @@ props:["product"],
 }
 #product-list-one ul{
     padding: 0;
+    list-style-type: none;
 }
 #product-list-one li{
-    display: inline-block;
+    /* display: inline-block; */
     margin-right: 10px;
     margin-top: 10px;
     padding: 20px;
@@ -67,6 +74,7 @@ props:["product"],
 .price{
     font-weight: bold;
     color: #E8800C;
+    display: block;
 }
 .pricebtn{
   background-color: #e99e48;

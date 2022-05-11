@@ -63,6 +63,6 @@ methods:{
 .price{
     font-weight: bold;
     color: #860CE8;
-    /* display: block; */
+    display: block;
 }
 </style>

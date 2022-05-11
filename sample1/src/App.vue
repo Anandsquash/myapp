@@ -6,8 +6,9 @@
     <product-list-two ></product-list-two>    -->
     <!-- <ProductListOne v-bind:products="products"></ProductListOne>
     <ProductListTwo v-bind:products="products"></ProductListTwo>    -->
-    <ProductListOne v-for="product in products 
-       " :key='product' :product="product"></ProductListOne>
+    <!-- <ProductListOne v-for="product in products 
+       " :key='product' :product="product"></ProductListOne> -->
+    <ProductListOne></ProductListOne>
     <!-- <ProductListTwo></ProductListTwo>    -->
 
   </div>
