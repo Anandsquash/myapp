@@ -4,9 +4,9 @@ import { createRouter, createWebHistory } from 'vue-router'
 // import Form1 from '../components/Form1.vue'
 // import Form2 from '../components/Form2.vue'
 // import Form3 from '../components/Form3.vue'
-// import test from '../components/test.vue'
-import Buyer from '../components/Buyer.vue'
-import sample from '../components/sample.vue'
+import test from '../components/test.vue'
+// import Buyer from '../components/Buyer.vue'
+// import sample from '../components/sample.vue'
 
 
 const routes = [
@@ -34,18 +34,18 @@ const routes = [
   //   path: '/form3',
   //   component: Form3
   // },
-  // {
-  //   path: '/test',
-  //   component: test
-  // },
   {
-      path: '/',
-      component: Buyer
-    },
-    {
-      path: '/sample',
-      component: sample
-    },
+    path: '/',
+    component: test
+  },
+  // {
+  //     path: '/',
+  //     component: Buyer
+  //   },
+    // {
+    //   path: '/sample',
+    //   component: sample
+    // },
 
 
 

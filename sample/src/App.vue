@@ -1,6 +1,6 @@
 <template>
   <div class="container">
-    <div class="frame1">
+    <!-- <div class="frame1">
       <div class="header">
         <p>Gate Wears</p>
         <hr>
@@ -32,14 +32,15 @@
       </div>
       
       
-    </div>
-    <div class="frame2">      
+    </div> -->
+    <!-- <div class="frame2">      
         <span class="p-input-icon-left">
             <i class="pi pi-search" />
             <InputText type="text" v-model="search" placeholder="Search" class="p-inputtext "/>
         </span>      
       <router-view/>
-    </div>
+    </div> -->
+    <router-view/>
   </div>
 </template>
 
