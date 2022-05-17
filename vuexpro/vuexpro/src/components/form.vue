@@ -4,11 +4,8 @@
     <h1>Add Your Personal Details</h1>
     <form>
       <div class="name">
-        <label for="name">Name </label><br />
-        <!-- <InputText type="text" v-model="value1" /> -->
-        <!-- <input type="text" 
-         placeholder="Full name"
-         id="name"> -->
+        <label for="name">Name <span class="text-danger">*</span></label><br />
+       
         <InputText
           v-model="formData.name"
           placeholder="Full name"
@@ -17,7 +14,7 @@
         <!-- <label for="username">Username</label> -->
       </div>
       <div>
-        <label>Email Id </label><br />
+        <label>Email Id <span class="text-danger">*</span> </label><br />
         <InputText
           v-model="formData.mail"
           placeholder="Email"
@@ -38,8 +35,31 @@
           >Email*</label
         >
       </div> -->
+      <!-- <div class="email_field my-3 p-fluid">
+        <div
+          :class="{ invalid_label: v$.formData.mail.$error }"
+          class="label mb-1"
+        >
+          E-mail id
+        </div>
+        <div class="text_field">
+          <InputText
+            id="mail"
+            :class="{ invalid: v$.formData.mail.$error }"
+            placeholder="Mail@website.com"
+            v-model="formData.mail"
+          />
+        </div>
+        <small
+          class="error_msg"
+          v-for="error of v$.formData.mail.$errors"
+          :key="error.uid"
+        >
+          {{ error.$message }}
+        </small>
+      </div> -->
       <div>
-        <label>Mobile </label><br />
+        <label>Mobile <span class="text-danger">*</span></label><br />
         <!-- <InputNumber  v-model="formData.mobile" :min="0" :max="10"  class="textBox"/> -->
         <InputMask
           mask="999-999-9999"
@@ -54,7 +74,7 @@
         <Button label="Delete" @click="Delete" /> -->
       </div>
       <div>
-        <DataTable :value="showUsers" responsiveLayout="scroll">
+        <DataTable :value="showUsers" showGridlines responsiveLayout="scroll" >
           <Column field="id" header="ID"></Column>
           <Column field="name" header="Name"></Column>
           <Column field="mail" header="Email Id "></Column>
@@ -62,9 +82,10 @@
           <Column field="" header="Action">
             <template #body="slotProps">
               <div class="action">
-                <div><Button label="Edit" @click="Edit(slotProps.data)" /></div>
-                <div>
-                  <Button label="Delete" @click="Delete(slotProps.data)" />
+                <div class="button"><Button label="Edit" @click="GetbyId(slotProps.data)" /></div>
+                <div class="button">
+                  <!-- <Button label="Delete" @click="Delete(slotProps.data)" /> -->
+                  <Button label="Delete" @click="DeleteUser(slotProps.data)" />
                 </div>
               </div>
             </template>
@@ -76,90 +97,121 @@
 </template>
 <script>
 import { mapActions, mapGetters } from "vuex";
-import DataTable from 'primevue/datatable';
-import Column from 'primevue/column';
-import Button from 'primevue/button';
+import DataTable from "primevue/datatable";
+import Column from "primevue/column";
+import Button from "primevue/button";
 // import createStore from './../store/index.js'
 import { email, required } from "@vuelidate/validators";
 import { useVuelidate } from "@vuelidate/core";
 
 export default {
   name: "form",
-  components:{
-      DataTable,
-      Column,
-      Button
+  components: {
+    DataTable,
+    Column,
+    Button,
   },
-  created(){
-    this.getUser()
+  created() {
+    this.getUser();
   },
+  // setup: () => ({ v$: useVuelidate() }),
   data() {
     return {
-      formData:{}
-    //   v$:useVuelidate()
+      v$: useVuelidate(),      
+      formData: {    
+      },
+
+      // errorMessage: "",
     };
   },
-  validations(){
-      return{
-          formData: {
-        name: {required},
-        mail: {required,email},
-        mobile: {required},
+  validations() {
+    return {
+      formData: {
+        name: { required },
+        mail: { required, email },
+        mobile: { required },
       },
     };
-    },
-    computed:{
-    ...mapGetters([
-        'showUsers',        
-        
-    ]),       
-    
-}, 
+  },
+  computed: {
+    ...mapGetters(["showUsers"]),
+  },
   methods: {
     // postData(e) {
-      
+
     //   e.preventDefault();
     // },
-    ...mapActions([
-        'addUser',
-        'getUser'
-        
-    ]),
-    async submit(){
+    ...mapActions(["addUser", "getUser","deleteUser","getbyId","editUser"]),
+    async submit() {
+      if(this.formData.id){
+        await this.editUser(this.formData);
+        this.formData={}
+      }
+      else{
         await this.addUser(this.formData);
-        await this.getUser()
+        this.formData={}
+      }
+      
+      await this.getUser();
     },
-    // Edit(value){
-    //     console.log("edit value",value);
-    //     this.formData={            
-    //         name:this.value.name,
-    //         mail:this.value.mail,
-    //         mobile:this.value.mobile
-    //         }
-    //     let data = {
-    //         id: this.value.id,
-    //         ...formData
-    // }
-    // console.log(data);
-    // }
+    async DeleteUser(value) {
+      console.log(value);
+      console.log("id",value.id);
+      const res= await this.deleteUser(value.id);
+      if(res&&res.status===200){
+        this.getUser();
+      }     
+
+    },
+
+
+    async GetbyId(value){
+      console.log("getvalue",value.id);
+      const res= await this.getbyId(value.id);
+      console.log("getbyid",res);
+      if(res&&res.status===200){
+       this.formData={
+            id:res.data.id,
+            name:res.data.name,
+            mail:res.data.mail,
+            mobile:res.data.mobile
+            }
+      }
+      
+        
+    
+    },
+ 
   },
 };
 </script>
 <style scoped >
 .textBox {
   width: 50% !important;
+  height: 42px !important;
   margin-top: 10px !important;
   margin-bottom: 20px !important;
+  margin-left: 10px;
 }
 .details {
   text-align: left;
   margin: 10%;
   margin-top: 5%;
+  background-color:gold;
+  padding: 20px;
+}
+.table{
+  border: 1px solid;
+}
+.button {
+    padding: 3px;
+    margin-right: .2rem;
 }
 .footer {
   display: flex;
   gap: 2rem;
   margin-bottom: 4rem;
+  padding-left: 20px;
 }
 .action {
   display: flex;

@@ -61,8 +61,36 @@ export default createStore({
         console.log(response.data,'response88');
       })
     } ,
-    deleteProperty({context},payload){
-      context.commit("deleteProperty1",payload)
-    }
+    async editUser(storeState, payload) {
+      try {
+        const res = await axios.put(`https://628230169fac04c65410b2ab.mockapi.io/users/${payload.id}`, payload);
+        return res;
+      } catch (error) {
+        return error;
+      }
+    },
+    async getbyId(storeState, id) {
+      try {
+        const res = await axios.get(`https://628230169fac04c65410b2ab.mockapi.io/users/${id}`);
+        return res;
+      } catch (error) {
+        return error;
+      }
+    },
+    // deleteProperty({context},payload){
+    //   context.commit("deleteProperty1",payload)
+    // }
+    async deleteUser(context,id) {
+      try{
+        console.log(`context`,context);
+        const res = axios.delete(`https://628230169fac04c65410b2ab.mockapi.io/users/${id}`)
+        console.log("deleteresponse",res);
+        return res;
+      }
+      catch (error) {
+        return error;
+      }      
+      
+    },
   }
 })
